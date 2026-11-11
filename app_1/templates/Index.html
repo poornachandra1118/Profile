@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+
+           
+            <div class='col-6 offset-3 border border-dark border-2 p-5 mt-5 rounded rounded-3'>
+        <form method='post' enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Emp Id</label>
+                <input type="text" name='empid' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Emp Name</label>
+                <input type="text" name='empname' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Emp Profile</label>
+                <input type="file" name='empimage' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Emp Resume</label>
+                <input type="file" name='empresume' class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+            </div>
+            
+           
+            <div class='text-center'>
+            <button type="submit" name='create' class="btn btn-primary">Create</button>
+             {% comment %} <button type="submit" name='update' class="btn btn-info">Update</button>
+             <button type="submit" name='delete' class="btn btn-danger">Delete</button>
+             <button type="submit" name='exist' class="btn btn-success">Exists</button> {% endcomment %}
+            </div>
+        </form>
+            </div>
+      <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Sno</th>
+                    <th scope="col">Primary key</th>
+                    <th scope="col">Emp Id</th>
+                    <th scope="col">Emp Name</th>
+                    <th scope="col">Emp profile</th>
+                    <th scope="col">Emp Document</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in Data %}
+                <tr>
+                    <td >{{forloop.counter}}</td>
+                    <td >{{x.id}}</td>
+                    <td >{{x.Emp_id}}</td>
+                    <td >{{x.Emp_name}}</td>
+                    <td >
+                        <img src="{{x.Emp_profile.url}}" alt='Employee Profile' width='100px' height='100px' />
+                    </td>
+                    <td >
+                        <a href="{{x.Emp_resume.url}}" >Resume</a>
+                    </td>
+                
+                    
+
+                </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+            </div>
+            
+           
+    </body>
+</html>

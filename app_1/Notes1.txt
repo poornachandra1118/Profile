@@ -1,0 +1,40 @@
+Advance Model:
+-------------
+=>Media Files.
+=>Model Inheritence
+--------------------
+Inheritence means to access variables and method from parent class to child class.
+
+Inheritence is a code re-usability.
+here in model we can use the structure multiple times in a different child classes.
+
+In an model inheritence what ever the data we can insert from the child models the data is also store in an parent model 
+those tags are available in a child and parent.
+
+
+Model Relationships:
+-------------------
+Model Relationships is known as to make a relationship in between the models.
+In a Django we can done Three types of relations.
+
+=>One to One relations
+=>One to Many Relation 
+=>Many to One Relation 
+=>Many to Many Relation
+
+=>One to One relations:
+-----------------------
+One to One relation can be done in between two models only one time with a one record.
+In an relation we have parent and child 
+
+from the child models we can able to select a record only one time.
+Once a record is selected then we can't able to select again the same record.
+here we can use a field with a name of OneToOneField(),
+for this field we can pass some of an argument like 
+=>parent relation model name.
+=>on_delete=models.CASCADE :on_delete is a predefine keyword which is used to 
+delete a record from child if the selected record from parent is deleted.
+
+Ex:
+---
+

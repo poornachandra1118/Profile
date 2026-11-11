@@ -1,0 +1,47 @@
+Advance Models:
+---------------
+->Images and File data fields:
+------------------------------
+while working with images and files we need to connect with our django settings env.
+while working on file data we need to install module with a name of pillow.
+syntax:
+-------
+pip install pillow 
+
+cmd:
+----
+
+(env) C:\Users\HP\OneDrive\Desktop\NIT(Batches)\Django\project_22>pip install pillow
+Collecting pillow
+  Obtaining dependency information for pillow from https://files.pythonhosted.org/packages/ff/cd/73a79ecdc822076002eb24b5e1e4a530b0bb5310fcb6d239abbec877110b/pillow-13.0.0-cp312-cp312-win_amd64.whl.metadata
+  Using cached pillow-13.0.0-cp312-cp312-win_amd64.whl.metadata (9.3 kB)
+Using cached pillow-13.0.0-cp312-cp312-win_amd64.whl (7.3 MB)
+Installing collected packages: pillow
+Successfully installed pillow-13.0.0
+
+[notice] A new release of pip is available: 23.2.1 -> 26.3
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+Media file connections:
+------------------------
+while connecting we need to mention one location and allocate to the url ,here we required as same as static connections.
+
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR/'media')
+
+add the media url and media root to the project urlpattern inside my urls.py
+
+once the file is submitted the file can be store inside my project,so the file 
+is known as a static file inside my project.
+
+while connected the urlpattren we need to import static from django.contrib.urls.static.
+
+
+
+while insert the media data via the html the data is not sended every time from html to views,
+because some local systems html forms will be sended text data by default.
+if we need to send file data we can mention enctype="multipart/form-data"
+
+while read a file location in views we can use req.FILES.get('name')
+
+
