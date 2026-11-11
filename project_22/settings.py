@@ -19,13 +19,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ge%%ig-11^)do5df2dn4wgrq4(h0m%6#+fskm^jzr4-f-h&4h_'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+import os
 
 ALLOWED_HOSTS = ['*']
+
+# Security settings
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    'django-insecure-change-this-key-for-local-development'
+)
+
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+
+CSRF_TRUSTED_ORIGINS = [
+    "render_url",
+]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 
 # Application definition
