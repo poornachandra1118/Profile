@@ -6,3 +6,5 @@ Faker==40.43.0
 pillow==13.0.0
 sqlparse==0.6.0
 tzdata==2026.5
+gunicorn
+whitenoise
